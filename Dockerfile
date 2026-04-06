@@ -8,7 +8,9 @@ COPY . .
 
 # --- Stage 2: Install dependencies and build ---
 FROM base AS build
-RUN pnpm install --frozen-lockfile
+RUN npm install -g pnpm
+#RUN pnpm install --frozen-lockfile
+RUN pnpm install
 RUN pnpm run build
 
 # --- Stage 3: Backend Runtime ---
